@@ -57,7 +57,7 @@
             panel3 = new System.Windows.Forms.Panel();
             btn_End = new System.Windows.Forms.Button();
             btn_Remove = new System.Windows.Forms.Button();
-            notifyIcon1 = new System.Windows.Forms.NotifyIcon(components);
+            notify = new System.Windows.Forms.NotifyIcon(components);
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic_Rec).BeginInit();
@@ -348,10 +348,10 @@
             btn_Remove.UseVisualStyleBackColor = true;
             btn_Remove.Click += btn_Remove_Click;
             // 
-            // notifyIcon1
+            // notify
             // 
-            notifyIcon1.Text = "notifyIcon1";
-            notifyIcon1.Visible = true;
+            notify.Icon = (System.Drawing.Icon)resources.GetObject("notify.Icon");
+            notify.Visible = true;
             // 
             // WorkPanel
             // 
@@ -414,6 +414,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btn_Remove;
         private System.Windows.Forms.Button btn_End;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.NotifyIcon notify;
     }
 }

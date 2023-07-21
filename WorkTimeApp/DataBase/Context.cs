@@ -12,7 +12,7 @@ namespace WorkTimeApp.DataBase
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=WorkTimeDb.db");
+            optionsBuilder.UseSqlite("Data Source=./DataBase/WorkTimeDb.db");
         }
 
         public DbSet<WorkTime> WorkTimes { get; set; }

@@ -39,10 +39,9 @@ namespace WorkTimeApp
 
             DataBaseHelper.Add(WorkTime);
 
-            if (MessageBox.Show("Efor başarıyla kaydedildi", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
-            {
-                this.Dispose();
-            }
+            ToastService.ShowToast("Bilgilendirme", $"Efor Kaydedildi", ToolTipIcon.Info, 2000);
+
+            this.Dispose();
         }
     }
 }

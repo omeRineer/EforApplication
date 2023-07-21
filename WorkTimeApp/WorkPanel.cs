@@ -32,7 +32,6 @@ namespace WorkTimeApp
 
         private void WorkPanel_Load(object sender, EventArgs e)
         {
-            notifyIcon1.ShowBalloonTip(3000, "Checkpoint", $"0 Saati bıraktınız.", ToolTipIcon.Info);
             btn_Remove.Visible = false;
             pic_Rec.Visible = false;
             btn_End.Enabled = false;
@@ -97,7 +96,6 @@ namespace WorkTimeApp
             pic_Rec.Visible = false;
             btn_End.Enabled = false;
         }
-
         private void timer_WorkTime_Tick(object sender, EventArgs e)
         {
             second++;
@@ -111,6 +109,7 @@ namespace WorkTimeApp
             if (minute == 60)
             {
                 hour++;
+                ToastService.ShowToast("Hatırlatma", $"{hour} saati geride bıraktın.", ToolTipIcon.Info, 5000);
                 minute = 0;
             }
 
@@ -178,10 +177,6 @@ namespace WorkTimeApp
             }
         }
 
-        private decimal CalculateTime(BindingList<WorkTimeDto> data)
-        {
-            return Convert.ToDecimal(data.Sum(x => x.Amount));
-        }
         private void ExportExcel(DataGridView dataGridView)
         {
             using (ExcelPackage package = new ExcelPackage())
@@ -209,7 +204,7 @@ namespace WorkTimeApp
                 {
                     FileInfo excelFile = new FileInfo(saveFileDialog.FileName);
                     package.SaveAs(excelFile);
-                    MessageBox.Show("Efor bilgileri excele aktarıldı");
+                    ToastService.ShowToast("Bilgilendirme", $"Dışa aktarma başarılı", ToolTipIcon.Info, 2000);
                 }
             }
         }
